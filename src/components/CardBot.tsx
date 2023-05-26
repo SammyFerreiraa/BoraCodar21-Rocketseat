@@ -1,13 +1,13 @@
 import React from 'react'
 import Image from 'next/image'
 
-const CardBot = () => {
+const CardBot = (props: { total: number }) => {
   return (
     <div className="fixed bottom-0 z-10 flex w-full max-w-[30vw] flex-col border-t-2 border-neutrals-stroke bg-neutrals-surface p-8 ">
       <div className="flex items-start justify-between">
         <p className="font-[500] text-neutrals-sec">Total:</p>
         <div className="flex flex-col items-end gap-4">
-          <p className="font-[700]">R$ 10,661,89</p>
+          <p className="font-[700]">R$ {props.total}</p>
           <div className="relative flex p-4">
             <Image
               src="/Tag.svg"

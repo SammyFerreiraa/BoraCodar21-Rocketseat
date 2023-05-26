@@ -3,18 +3,73 @@ import Item from '@/components/Item'
 import CardBot from './CardBot'
 import CardTop from './CardTop'
 
+const items = [
+  {
+    name: 'Monitor Gamer Curvo 49 DQHD, 240Hz, 1ms, HDMI e DisplayPort, HDR 1000, FreeSync Premium, Ajuste de Altura - LC49G95TSSLXZD',
+    preço: 8599.9,
+    id: 1,
+    img: '/monitor.jpg',
+  },
+  {
+    name: 'Monitor Gamer Curvo 49 DQHD, 240Hz, 1ms, HDMI e DisplayPort, HDR 1000, FreeSync Premium, Ajuste de Altura - LC49G95TSSLXZD',
+    preço: 8599.9,
+    id: 1,
+    img: '/monitor.jpg',
+  },
+  {
+    name: 'Cadeira Gamer  RGB - Preta com Iluminação (Led)',
+    preço: 959.9,
+    id: 2,
+    img: '/cadeira.jpg',
+  },
+  {
+    name: 'Teclado Gamer Mecânico Low Profile RGB AW510K 580',
+    preço: 1002,
+    id: 3,
+    img: '/teclado.jpg',
+  },
+  {
+    name: 'Headset Gamer RGB Preto',
+    preço: 99.9,
+    id: 4,
+    img: '/headset.jpg',
+  },
+  {
+    name: 'Patinho De Borracha Para Banho',
+    preço: 19.9,
+    id: 5,
+    img: '/paatinho.jpg',
+  },
+]
+
 const Cart = () => {
+  let final: any = 0
+  for (let int = 0; int < items.length; int++) {
+    const num = items[int].preço
+    final += num
+  }
   return (
     <div className="absolute right-0 h-screen w-[30%] bg-neutrals-surface">
       {/* TOP */}
-      <CardTop />
+      <CardTop quantidade={items.length} />
       {/* MID */}
-      <div className=" z-0 flex flex-col gap-12 bg-neutrals-surface pb-60 pl-8 pr-8 pt-28">
-        <Item />
+      <div className=" z-0 flex flex-col gap-12 bg-neutrals-surface pb-72 pl-8 pr-8 pt-28">
+        {items.map((it) => (
+          <Item
+            name={it.name}
+            preço={it.preço.toLocaleString('pt-BR', {
+              minimumFractionDigits: 2,
+            })}
+            src={it.img}
+            key={it.id}
+          />
+        ))}
       </div>
 
       {/* BOT */}
-      <CardBot />
+      <CardBot
+        total={final.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+      />
     </div>
   )
 }

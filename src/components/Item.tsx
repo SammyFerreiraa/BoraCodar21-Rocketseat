@@ -1,14 +1,13 @@
 import Image from 'next/image'
-import React from 'react'
 
-const Item = () => {
+const Item = (props: { preço: any; name: string; src: any }) => {
   return (
     <div className="flex flex-row gap-6">
       {/* LEFT  */}
       <div>
         <Image
           priority
-          src="/teclado.jpg"
+          src={props.src}
           alt="img"
           width={104}
           height={104}
@@ -16,7 +15,7 @@ const Item = () => {
         />
       </div>
       {/* RIGHT  */}
-      <div className="flex flex-col gap-4">
+      <div className="flex min-h-[104px] min-w-[255px] flex-col justify-between gap-4">
         <p
           className="max-h-12 overflow-hidden text-ellipsis"
           style={{
@@ -25,16 +24,16 @@ const Item = () => {
             WebkitBoxOrient: 'vertical',
           }}
         >
-          Teclado Gamer Mecânico Low Profile RGB AW510K 580
+          {props.name}
         </p>
         <div className="flex flex-row items-center justify-between">
-          <p className="font-[700]">R$ 8599,90</p>
+          <p className="font-[700]">R$ {props.preço}</p>
           <div className="gap flex">
             <button className="rounded border-2 border-neutrals-stroke p-3">
               <Image src="/Minus.svg" alt="minus" width={16} height={16} />
             </button>
             <p className="flex h-10 w-10 items-center justify-center">1</p>
-            <button className="rounded border-2 border-brand-light p-3">
+            <button className="rounded border-2 border-brand-light p-3 hover:border-brand-color hover:bg-brand-color">
               <Image src="/Plus.svg" alt="plus" width={16} height={16} />
             </button>
           </div>
