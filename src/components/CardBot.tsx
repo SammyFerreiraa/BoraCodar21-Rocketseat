@@ -1,7 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
 
-const CardBot = (props: { total: number }) => {
+interface Values {
+  total: number
+}
+
+const CardBot = (props: Values) => {
   return (
     <div className="fixed bottom-0 z-10 flex w-full max-w-[30vw] flex-col border-t-2 border-neutrals-stroke bg-neutrals-surface p-8 ">
       <div className="flex items-start justify-between">

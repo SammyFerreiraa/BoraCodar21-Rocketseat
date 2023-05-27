@@ -1,7 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
 
-const CardTop = (props: { quantidade: number }) => {
+interface TotalItems {
+  quantidade: number
+}
+
+const CardTop = (props: TotalItems) => {
   return (
     <div className="fixed z-10 flex w-full max-w-[30vw] flex-row items-center justify-between gap-2 border-b-2 border-neutrals-stroke bg-neutrals-surface pb-6 pl-8 pr-4 pt-6">
       <p className="text-xl text-neutrals-sec">

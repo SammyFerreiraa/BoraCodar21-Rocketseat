@@ -1,6 +1,12 @@
 import Image from 'next/image'
 
-const Item = (props: { preço: any; name: string; src: any }) => {
+interface Items {
+  preço: any
+  name: string
+  src: any
+}
+
+const Item = (props: Items) => {
   return (
     <div className="flex flex-row gap-6">
       {/* LEFT  */}
