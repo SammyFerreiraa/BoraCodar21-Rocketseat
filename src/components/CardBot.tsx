@@ -11,7 +11,7 @@ const CardBot = (props: Values) => {
       <div className="flex items-start justify-between">
         <p className="font-[500] text-neutrals-sec">Total:</p>
         <div className="flex flex-col items-end gap-4">
-          <p className="font-[700]">R$ {props.total}</p>
+          <p className="font-[700] text-neutrals-pri">R$ {props.total}</p>
           <div className="relative flex p-4">
             <Image
               src="/Tag.svg"
